@@ -1,0 +1,95 @@
+:root {
+    --wine:      #4a1020;
+    --wine-mid:  #6b1c30;
+    --cream:     #f5f0e8;
+    --parchment: #ede5d4;
+    --gold:      #b5892a;
+    --sage:      #4a5e42;
+    --text:      #2a1f1a;
+    --muted:     #6e5c52;
+    --border:    rgba(74, 16, 32, 0.15);
+}
+
+/* Strips Browser Default Styles */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Jost', sans-serif;
+    background-color: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+/* Navigation Styles */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(245, 240, 232, 0.96);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4vw;
+    height: 68px;
+    transition: height 0.3s ease;
+}
+
+/* Navigation Brand */
+.nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: var(--wine);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+}
+
+.nav-brand span {
+    color: var(--gold);
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+}
+
+.nav-links a {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--wine);
+}
+
+.nav-links a.active {
+    color: var(--wine);
+    border-bottom: 1.5px solid var(--gold);
+    padding-bottom: 2px;
+}
+
+/* Page Selection */
+.page {
+    display: none;
+    padding-top: 68px;
+    min-height: 100vh;
+}
+
+.page.active {
+    display: block;
+}

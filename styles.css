@@ -335,3 +335,159 @@ nav {
     font-style: italic;
     letter-spacing: 0.08em;
 }
+
+
+
+
+/* About Section */
+.about-layout {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 2rem 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.about-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 300;
+    color: var(--wine);
+    margin: 0.8rem 0 1.6rem;
+    line-height: 1.2;
+}
+
+.about-body {
+    font-size: 0.97rem;
+    line-height: 1.9;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 1.4rem;
+}
+
+.about-signature {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem;
+    font-style: italic;
+    color: var(--wine-mid);
+    margin-bottom: 2rem;
+}
+
+
+/* Contact Section */
+.contact-card {
+    background: var(--parchment);
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+}
+
+.contact-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: var(--wine);
+    margin-bottom: 0.4rem;
+}
+
+.contact-sub {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.14rem;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.45rem;
+}
+
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    padding: 0.7rem 0.9rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+    text-align: center;
+}
+
+.form-group select:hover {
+    border-color: var(--wine);
+    cursor:pointer;
+}
+
+.form-group input, .form-group textarea {
+    text-align: left;
+}
+
+.form-group input, .form-group textarea, .form-group select {
+    border-color: var(--wine);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.contact-submit-btn {
+    width: 100%;
+    background: var(--wine);
+    color: var(--cream);
+    border: none;
+    cursor: pointer;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    transition: background 0.22s;
+}
+
+.contact-submit-btn:hover {
+    background: var(--wine-mid);
+}
+
+
+/* Contact Details */
+.contact-details {
+    margin-top: 2rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--border);
+}
+
+.contact-detail-row {
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-start;
+    margin-bottom: 0.9rem;
+}
+
+.detail-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    min-width: 60px;
+    padding-top: 2px;
+}
+
+.detail-value {
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-weight: 300;
+}

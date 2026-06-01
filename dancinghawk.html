@@ -99,12 +99,84 @@
                 <div class="gallery-item">
                     <img src="images/zin-at-harvest-cluster.jpg" alt="Zinfandel cluster at harvest" />
                     <div class="gallery-caption"><p>Fall — Harvest</p></div>
-                </div>
-
-            
+                </div>            
             </div>
 
          </section>
+
+
+        <!-- About & Contact Page -->
+        <section class="page" id="page-about">
+
+            <!-- About Layout -->
+            <div class="about-layout">
+
+                <!-- Left Column: About -->
+                <div class="about-col">
+                    <p class="section-label">About the Vineyard</p>
+                    <h2 class="about-heading">Rooted in Craft,<br />Guided by the Seasons</h2>
+                    <p class="about-body">
+                        Dancing Hawk Vineyard is owned and operated by Ken Johnson — viticulturalist, grower, and home winemaker operating out of El Dorado County, California.
+                    </p>
+                    <p class="about-body">
+                        The estate grows two varietals: Zinfandel from an old vine clone originating in Monterey circa 1860, and Primitivo Clone 3 from UC Davis. Both are organically farmed on 23-year-old vines grown on 1103P rootstock.
+                    </p>
+                    <p class="about-body">
+                        Grapes sourced from Dancing Hawk have gone on to win awards at the El Dorado County Fair, Amador County Fair, and Sacramento State Fair.
+                    </p>
+                    <div class="about-signature">Ken Johnson</div>
+                </div>
+
+                <!-- Right Column: Contact -->
+                <div class="contact-col">
+                    <div class="contact-card">
+                        <h3 class="contact-heading">Get in Touch</h3>
+                        <p class="contact-sub">Trade inquiries, vendor partnerships, and general questions welcome.</p>
+
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" placeholder="Jane Smith"  />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="jane@smith.com" />
+                        </div>
+                        <div class="form-group">
+                            <label for="reason">Inquiry Type</label>
+                            <select id="reason">
+                                <option value="">— Select One —</option>
+                                <option>Vendor / Trade Partnership</option>
+                                <option>Wholesale Inquiry</option>
+                                <option>General Question</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="Write your message here..."></textarea>
+                        </div>
+                        <button class="contact-submit-btn" onClick="handleSubmit()">Send Message</button>
+
+                        <div class="contact-details">
+                            <div class="contact-detail-row">
+                                <span class="detail-label">Location</span>
+                                <span class="detail-value">El Dorado County, California</span>
+                            </div>
+                            <div class="contact-detail-row">
+                                <span class="detail-label">Email</span>
+                                <span class="detail-value">kjatfarm@gmail.com</span>
+                            </div>
+                            <div class="contact-detail-row">
+                                <span class="detail-label">Phone</span>
+                                <span class="detail-value">530-391-2507</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+
+            </div>
+
+        </section>
 
          <script src="script.js"></script>
     </body>

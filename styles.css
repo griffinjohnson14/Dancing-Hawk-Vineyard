@@ -362,8 +362,8 @@ nav {
 .about-body {
     font-size: 0.97rem;
     line-height: 1.9;
-    color: var(--muted);
-    font-weight: 300;
+    color: var(--text);
+    font-weight: 400;
     margin-bottom: 1.4rem;
 }
 
@@ -378,21 +378,21 @@ nav {
 
 /* Contact Section */
 .contact-card {
-    background: var(--parchment);
+    background: #e4d9c4;
     border: 1px solid var(--border);
     padding: 2.5rem;
 }
 
 .contact-heading {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.7rem;
-    font-weight: 400;
+    font-size: 2rem;
+    font-weight: 600;
     color: var(--wine);
     margin-bottom: 0.4rem;
 }
 
 .contact-sub {
-    font-size: 0.82rem;
+    font-size: 1rem;
     color: var(--muted);
     margin-bottom: 2rem;
     font-weight: 300;
@@ -432,10 +432,6 @@ nav {
 
 .form-group input, .form-group textarea {
     text-align: left;
-}
-
-.form-group input, .form-group textarea, .form-group select {
-    border-color: var(--wine);
 }
 
 .form-group textarea {

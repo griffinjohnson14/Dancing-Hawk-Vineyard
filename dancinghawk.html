@@ -17,9 +17,9 @@
         <nav>
             <a class="nav-brand" href="#">Dancing <span>Hawk</span></a>
             <ul class="nav-links">
-                <li><a href="#" id="nav-home" class="active">Home</a></li>
-                <li><a href="#" id="nav-gallery">Gallery</a></li>
-                <li><a href="#" id="nav-about">About & Contact</a></li>   
+                <li><a href="#" id="nav-home" class="active" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" id="nav-gallery" onclick="showPage('gallery')">Gallery</a></li>
+                <li><a href="#" id="nav-about" onclick="showPage('about')">About & Contact</a></li>  
             </ul>
         </nav>
 
@@ -68,5 +68,44 @@
 
         </section>
 
+
+        <!-- Gallery Page -->
+         <section class="page" id="page-gallery">
+
+            <!-- Gallery Header -->
+            <div class="gallery-header">
+                <p class="section-label">Our Vineyard</p>
+                <h2 class="gallery-title">A Glimpse of the Estate</h2>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid">
+            
+                <div class="gallery-item">
+                    <img src="images/zin-at-verasion.jpg" alt="Vineyard rows at verasion" />
+                    <div class="gallery-caption"><p>Summer — Verasion</p></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/primitivo-at-florescence.jpg" alt="Primitivo at florescence" />
+                    <div class="gallery-caption"><p>Spring — Florescence</p></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/zin-at-pruning.jpg" alt="Vineyard at pruning" />
+                    <div class="gallery-caption"><p>Winter — Pruning</p></div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="images/zin-at-harvest-cluster.jpg" alt="Zinfandel cluster at harvest" />
+                    <div class="gallery-caption"><p>Fall — Harvest</p></div>
+                </div>
+
+            
+            </div>
+
+         </section>
+
+         <script src="script.js"></script>
     </body>
 </html>

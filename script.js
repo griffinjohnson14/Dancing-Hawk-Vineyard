@@ -1,3 +1,6 @@
+// Set footer year on load
+document.getElementById('year').textContent = new Date().getFullYear();
+
 function showPage(name) {
     // Hides all pages
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));

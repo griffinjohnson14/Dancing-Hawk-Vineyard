@@ -487,3 +487,34 @@ nav {
     color: var(--muted);
     font-weight: 300;
 }
+
+
+
+
+/* Footer Styles */
+footer {
+    background: var(--wine);
+    padding: 2.5rem 4vm;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--parchment);
+    letter-spacing: 0.05em;
+}
+
+.footer-brand span {
+    color: var(--gold);
+}
+
+.footer-copy {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 0.06em;
+}

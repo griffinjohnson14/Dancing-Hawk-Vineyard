@@ -33,4 +33,23 @@ function observeReveals() {
     });
 }
 
+
+// Parallax Effect and Navigation Shrink on Scroll
+window.addEventListener('scroll', function() {
+    // Paralaax Effect
+    const heroBg = document.querySelector('.hero-bg');
+    if (heroBg) {
+        heroBg.style.transform = 'translateY(' + window.scrollY * 0.4 + 'px)';
+    }
+
+    // Navigation Shrink
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 60) {
+        nav.classList.add('scrolled');
+    }
+    else {
+        nav.classList.remove('scrolled');
+    }
+}, { passive: true });
+
 observeReveals();

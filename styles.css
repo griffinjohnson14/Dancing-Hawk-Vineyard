@@ -99,6 +99,14 @@ nav {
     padding-bottom: 2px;
 }
 
+nav.scrolled {
+    height: 54px;
+}
+
+
+
+
+
 /* Page Selection */
 .page {
     display: none;

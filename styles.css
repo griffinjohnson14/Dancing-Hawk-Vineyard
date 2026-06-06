@@ -110,6 +110,9 @@ nav {
     display: block;
 }
 
+
+
+
 /* Hero Section */
 .hero {
     position: relative;
@@ -147,6 +150,8 @@ nav {
     text-transform: uppercase;
     color: var(--gold);
     margin-bottom: 1.4rem;
+    animation: fadeUp 0.8s ease both;
+    animation-delay: 0.2s;
 }
 
 .hero-title {
@@ -157,6 +162,8 @@ nav {
     color: #fff;
     letter-spacing: 0.02em;
     margin-bottom: 0.2em;
+    animation: fadeUp 0.9s ease both;
+    animation-delay: 0.45s;
 }
 
 .hero-title em {
@@ -169,6 +176,9 @@ nav {
     height: 1px;
     background: var(--gold);
     margin: 1.6rem auto;
+    animation: expandWidth 0.7s ease both;
+    animation-delay: 0.85s;
+    width: 0;
 }
 
 .hero-sub {
@@ -179,6 +189,8 @@ nav {
     color: rgba(255, 255, 255, 0.82);
     max-width: 520px;
     line-height: 1.6;
+    animation: fadeUp 0.8s ease both;
+    animation-delay: 1s;
 }
 
 .hero .hero-cta {
@@ -192,6 +204,8 @@ nav {
     text-transform: uppercase;
     padding: 0.85rem 2.4rem;
     transition: background 0.25s, border-color 0.25s;
+    animation: fadeUp 0.8s ease both;
+    animation-delay: 1.25s;
 }
 
 .hero .hero-cta:hover {
@@ -494,7 +508,7 @@ nav {
 /* Footer Styles */
 footer {
     background: var(--wine);
-    padding: 2.5rem 4vm;
+    padding: 2.5rem 4vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -517,4 +531,30 @@ footer {
     font-size: 0.75rem;
     color: rgba(255, 255, 255, 0.4);
     letter-spacing: 0.06em;
+}
+
+
+
+
+/** Animations and Transitions **/
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes expandWidth {
+    from { width: 0; }
+    to   { width: 60px; }
+}
+
+/* Scroll Reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(36px); 
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
 }

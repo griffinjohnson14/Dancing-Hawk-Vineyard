@@ -14,6 +14,8 @@ function showPage(name) {
     document.getElementById('nav-' + name).classList.add('active');
     // Scrolls to the top of the page
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Re-trigger the reveals on a new page
+    observeReveals();
 }
 
 

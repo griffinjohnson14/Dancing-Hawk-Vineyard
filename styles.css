@@ -566,3 +566,19 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
+
+
+
+/** Page Fade Translations **/
+.page {
+    animation: none;
+}
+
+.page.active {
+    animation: fadeIn 0.4s ease both;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}

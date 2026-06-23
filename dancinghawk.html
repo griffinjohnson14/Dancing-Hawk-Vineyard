@@ -15,10 +15,11 @@
 
         <!-- Navigation -->
         <nav>
-            <a class="nav-brand" href="#" onclick="showPage('home')">Dancing <span>Hawk</span></a>
+            <a class="nav-brand" href="#" onclick="showPage('home')"> <img src="images/dancing-hawk-logo-removedbg.png" alt="Dancing Hawk Vineyard" class="nav-logo" /> </a>
             <ul class="nav-links">
                 <li><a href="#" id="nav-home" class="active" onclick="showPage('home')">Home</a></li>
-                <li><a href="#" id="nav-gallery" onclick="showPage('gallery')">Gallery</a></li>
+                <li><a href="#" id="nav-story" onclick="showPage('story')">Our Story</a></li>
+                <li><a href="#" id="nav-gallery" onclick="showPage('gallery')">Gallery</a></li>                
                 <li><a href="#" id="nav-about" onclick="showPage('about')">About & Contact</a></li>  
             </ul>
         </nav>
@@ -69,8 +70,65 @@
         </section>
 
 
+        <!-- Story Page -->
+        <section class="page" id="page-story">
+
+            <!-- Story Hero -->
+            <div class="story-hero">
+                <div class="story-hero-bg"></div>
+                <div class="story-hero-content">
+                    <p class="section-label">Our Story</p>
+                    <h2 class="story-hero-title">From the Ground Up</h2>
+                </div>
+            </div>
+
+            <!-- The Site -->
+            <div class="story-section reveal">
+                <div class="story-text">
+                    <p class="section-label">The Site</p>
+                    <p class="story-body">Like all good stories, ours begins with the location.</p>
+                    <p class="story-body">Our vineyard sits in El Dorado County, near the town of El Dorado, nestled within the Sierra Foothills AVA at 1,735 feet elevation. As they say out here, we're <em>above the fog and below the snow.</em> Neither is strictly true, but fog and snow days are few, and the valley fog often creeps right to the lowest edge of the vines.</p>
+                    <p class="story-body">The property was chosen for three things: to build our home, plant our vineyard, and take in the views. To the west, the Big Canyon Reservoir, Rancho Seco, and the Sacramento Valley stretch all the way to Mt. Diablo. Pilot Hill anchors the northern skyline, and the snow-capped Crystal Range of the Sierra Nevada defines the east.</p>
+                </div>
+                <div class="story-image">
+                    <img src="images/Clearing-PreVineyard-North.jpg" alt="The Land Before the Yineyard" />                    
+                </div>
+            </div>
+
+            <!-- The Vineyard -->
+            <div class="story-section story-section--reverse reveal">
+                <div class="story-text">
+                    <p class="section-label">The Vineyard</p>
+                    <p class="story-body">The land was cleared, the home was built, and the vineyard was laid out by hand. Every post, wire, and vine placed ourselves.</p>
+                    <p class="story-body">The 2.5-acre vineyard sits on a ridge in what we call a double saddle, shaped something like a Pringles chip. It dips east and west, rises north and south, with not a single level stretch of ground to be found. The rows run nearly true north to south, which serves the vines well. Cooling breezes roll down from the Sierras each night, giving way to warm valley air during the day. The fruit gets balanced hours of sun and shade, and equipment can run up and down the slope without fighting the terrain.</p>
+                    <p class="story-body">Our Auburn-Series soil is shallow and rocky, perforated by ridges of Greenstone we call the <em>dragon spines,</em> running the same direction as our rows. Rather than blast them out or route around them, we incorporated them right into the vineyard.</p>
+                    <p class="story-body">The farming is fully organic. No tilling, no disking, no insecticides. Native grasses and wildflowers are left to seed between the rows, keeping a healthy insect population that tends to take care of itself.</p>
+                </div>
+                <div class="story-image">
+                    <img src="images/First-Planting-Vineyard.jpg" alt="First planting of the vineyard" />
+                </div>
+            </div>
+
+            <!-- The Grapes -->
+            <div class="story-section reveal">
+                <div class="story-text">
+                    <p class="section-label">The Grapes</p>
+                    <p class="story-body">Zinfandel and Primitivo were chosen for their love of heat, their deep roots in the region, and a personal passion for what Zinfandel becomes in a glass.</p>
+                    <p class="story-body">Summers here are hot and dry. Triple-digit days are common, and from May through November there is rarely a drop of rain. All vines are planted on 1103P rootstock, chosen for drought tolerance and adaptability to our sparse, rocky soil.</p>
+                    <p class="story-body">We practice deficit irrigation, giving the vines just enough water to keep from burning off at the shoot tips and not a drop more. Winter rain is collected and stored; well water is used only as a last resort. The stress this puts on the vines is intentional. Smaller berries, more concentrated flavor, earlier ripening.</p>
+                    <p class="story-body">By Labor Day, the Zinfandel is typically ready at around 24° Brix and 3.7 pH. Leave it a few weeks longer and we've seen it climb as high as 33° Brix. Rich, powerful, and entirely this place.</p>
+                </div>
+                <div class="story-image">
+                    <img src="images/Nighttime-Bottling.jpg" alt="Bottling night" />
+                </div>
+            </div>
+
+        </section>
+
+
+
         <!-- Gallery Page -->
-         <section class="page" id="page-gallery">
+        <section class="page" id="page-gallery">
 
             <!-- Gallery Header -->
             <div class="gallery-header reveal">
@@ -101,7 +159,7 @@
                 </div>
             </div>
 
-         </section>
+        </section>
 
 
         <!-- About & Contact Page -->
@@ -180,7 +238,9 @@
 
         <!-- Footer  -->
         <footer>
-            <div class="footer-brand">Dancing <span>Hawk</span> Vineyard</div>
+            <div class="footer-brand">
+                <img src="images/dancing-hawk-logo-removedbg.png" alt="Dancing Hawk Vineyard" class="footer-logo" /> Dancing <span>Hawk</span> Vineyard
+            </div>
             <div class="footer-copy">
                 &copy; <span id="year"></span> Dancing Hawk Vineyard &nbsp;·&nbsp; All rights reserved.
             </div>        

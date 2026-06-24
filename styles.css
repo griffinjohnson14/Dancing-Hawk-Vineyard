@@ -720,6 +720,21 @@ footer {
         border-bottom: none;
     }
 
+    /* Story Section is Vertically Stacked */
+    .story-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 3rem 1.5rem;
+    }
+
+    .story-section--reverse {
+        direction: ltr;
+    }
+
+    .story-image img {
+        min-height: 260px;
+    }
+
     /* Gallery Grid Becomes Single Column */
     .gallery-grid {
         grid-template-columns: 1fr;

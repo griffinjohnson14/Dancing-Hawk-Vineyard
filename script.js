@@ -19,6 +19,35 @@ function showPage(name) {
 }
 
 
+// Contact Form Submission
+async function handleSubmit() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const reason = document.getElementById('reason').value;
+    const msg = document.getElementById('message').value.trim();
+
+    if (!name || !email || !msg) {
+        alert('Please fill in your name, email, and message.');
+        return;
+    }
+
+    const response = await fetch('https://formspree.io/f/xdarkvrp', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, 
+        body: JSON.stringify({ name, email, reason, message: msg })
+    });
+
+    if (response.ok) {
+        alert('Thank you, ' + name + '! Ken will be in touch soon.');
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('reason').value = '';
+        document.getElementById('message').value = '';
+    } else {
+        alert('Something went wrong. Please email directly at kjatfarm@gmail.com');
+    }
+}
+
+
 // Scroll Reveal Animations
 function observeReveals() {
     const observer = new IntersectionObserver((entries) => {

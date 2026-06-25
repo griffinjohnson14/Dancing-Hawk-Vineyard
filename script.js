@@ -16,6 +16,8 @@ function showPage(name) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     // Re-trigger the reveals on a new page
     observeReveals();
+    // Cleans up the URL bar
+    history.replaceState(null, '', '/');
 }
 
 

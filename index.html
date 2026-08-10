@@ -5,6 +5,17 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Dancing Hawk Vineyard</title>
+        <meta name="description" content="Dancing Hawk Vineyard is a family-run estate in the Sierra Foothills of El Dorado County, California, growing organically farmed Zinfandel and Primitivo on 23-year-old vines." />
+        <link rel="icon" href="images/dancing-hawk-logo-removedbg.png" />
+
+        <!-- Link preview cards (texts, Facebook, iMessage, etc.) -->
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Dancing Hawk Vineyard" />
+        <meta property="og:description" content="Estate grown, organically farmed Zinfandel and Primitivo from the foothills of El Dorado County, California." />
+        <meta property="og:url" content="https://dancinghawkvineyard.com/" />
+        <meta property="og:image" content="https://dancinghawkvineyard.com/images/Beautiful-Vineyard-Sunset.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+
         <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,12 +27,18 @@
         <!-- Navigation -->
         <nav>
             <a class="nav-brand" href="javascript:void(0)" onclick="showPage('home')"> <img src="images/dancing-hawk-logo-removedbg.png" alt="Dancing Hawk Vineyard" class="nav-logo" /> </a>
-            <ul class="nav-links">
+
+            <!-- Mobile menu button, hidden on desktop via CSS -->
+            <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links" onclick="toggleNav()">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav-links" id="nav-links">
                 <li><a href="javascript:void(0)" id="nav-home" class="active" onclick="showPage('home')">Home</a></li>
                 <li><a href="javascript:void(0)" id="nav-story" onclick="showPage('story')">Our Story</a></li>
-                <li><a href="javascript:void(0)" id="nav-vintages" onclick="showPage('vine')">Through the Grape Vine</a></li>
+                <li><a href="javascript:void(0)" id="nav-vine" onclick="showPage('vine')">Through the Grapevine</a></li>
                 <li><a href="javascript:void(0)" id="nav-gallery" onclick="showPage('gallery')">Gallery</a></li>
-                <li><a href="javascript:void(0)" id="nav-about" onclick="showPage('about')">About & Contact</a></li> 
+                <li><a href="javascript:void(0)" id="nav-about" onclick="showPage('about')">About &amp; Contact</a></li>
             </ul>
         </nav>
 
@@ -92,7 +109,7 @@
                     <p class="story-body">The property was chosen for three things: to build our home, plant our vineyard, and take in the views. To the west, the Big Canyon Reservoir, Rancho Seco, and the Sacramento Valley stretch all the way to Mt. Diablo. Pilot Hill anchors the northern skyline, and the snow-capped Crystal Range of the Sierra Nevada defines the east.</p>
                 </div>
                 <div class="story-image">
-                    <img src="images/Clearing-PreVineyard-North.jpg" alt="The Land Before the Yineyard" />                    
+                    <img src="images/Clearing-PreVineyard-North.jpg" alt="The land before the vineyard" />
                 </div>
             </div>
 
@@ -134,7 +151,7 @@
              <div class="vine-header reveal">
                 <p class="section-label">From the Vineyard</p>
                 <h2 class="vine-title">Through the Grapevine</h2>
-                <p class="vine-subtitle">Updates, observations, and notes from the field. Straight from Ken's Mouth.</p>
+                <p class="vine-subtitle">Updates, observations, and notes from the field. Straight from Ken.</p>
             </div>
 
             <!-- Posts Container -->
@@ -150,7 +167,7 @@
 
                     <!-- Photos, upload images to folder first -->
                      <div class="post-image">
-                        <img src="images/Primitivo-Picking-Harvest.jpg" alt="Describe your image here"/>
+                        <img src="images/Primitivo-Picking-Harvest.jpg" alt="Picking Primitivo at harvest"/>
                      </div>
 
                      <!-- ✏️ YOUR TEXT — add as many paragraphs as needed -->
@@ -158,6 +175,22 @@
                         he wishes to convey about the happenings in the vineyard.</p>
                     <p class="post-body">He can add a second paragraph here if he wants to say more.</p>
 
+                </article>
+
+                <article class="vine-post reveal">
+                    <!-- Post Title -->
+                     <h3 class="post-title">Earlier Update</h3>
+
+                    <!-- Post Date -->
+                    <p class="post-date">May 10, 2026</p>
+
+                    <!-- Photos, upload images to folder first -->
+                     <div class="post-image">
+                        <img src="images/Lupine-Field.jpg" alt="Lupine fields in spring"/>
+                     </div>
+
+                     <!-- ✏️ YOUR TEXT — add as many paragraphs as needed -->
+                    <p class="post-body">This is an older post showing how previous updates will appear on the webpage. </p>
                 </article>
             </div>
 
@@ -228,29 +261,31 @@
                         <h3 class="contact-heading">Get in Touch</h3>
                         <p class="contact-sub">Trade inquiries, vendor partnerships, and general questions welcome.</p>
 
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" placeholder="Jane Smith"  />
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" placeholder="jane@smith.com" />
-                        </div>
-                        <div class="form-group">
-                            <label for="reason">Inquiry Type</label>
-                            <select id="reason">
-                                <option value="">— Select One —</option>
-                                <option>Vendor / Trade Partnership</option>
-                                <option>Wholesale Inquiry</option>
-                                <option>General Question</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" placeholder="Write your message here..."></textarea>
-                        </div>
-                        <button class="contact-submit-btn" onClick="handleSubmit()">Send Message</button>
+                        <form id="contact-form" onsubmit="handleSubmit(event)">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="jane@smith.com" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="reason">Inquiry Type</label>
+                                <select id="reason" name="reason">
+                                    <option value="">— Select One —</option>
+                                    <option>Vendor / Trade Partnership</option>
+                                    <option>Wholesale Inquiry</option>
+                                    <option>General Question</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+                            </div>
+                            <button type="submit" class="contact-submit-btn">Send Message</button>
+                        </form>
 
                         <div class="contact-details">
                             <div class="contact-detail-row">

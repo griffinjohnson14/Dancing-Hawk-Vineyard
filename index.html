@@ -147,6 +147,63 @@
         <!-- Through the Grape Vine Page-->
         <section class="page" id="page-vine">
 
+            <!-- Decorative grapevine down the side margins, wide desktops only.
+                 The pattern tiles vertically to fill the page however long it gets. -->
+            <svg class="vine-decor vine-decor--left" aria-hidden="true" focusable="false">
+                <defs>
+                    <pattern id="vine-pattern" width="120" height="420" patternUnits="userSpaceOnUse">
+                        <!-- Leaves, tendrils and bunches are positioned at points that sit
+                             ON the main curve, each joined to it by a short stem. -->
+                        <g class="vine-stem" fill="none" stroke-width="2" stroke-linecap="round">
+                            <!-- main vine -->
+                            <path d="M60 0C92 52 92 116 60 168C28 220 28 284 60 336C78 366 42 392 60 420"/>
+                            <!-- short stems joining each bunch to the vine -->
+                            <path d="M84 84C88 90 90 95 91 100"/>
+                            <path d="M37 238c-2 3-4 5-5 8"/>
+                            <!-- tendrils curling off the vine -->
+                            <path d="M72 144c-8 4-12 10-8 15c3 4 9 2 9-3"/>
+                            <path d="M42 295c8 4 12 10 8 15c-3 4-9 2-9-3"/>
+                            <!-- petioles carrying each leaf back to the vine -->
+                            <path d="M78 41L88 32"/>
+                            <path d="M42 209L30 200"/>
+                            <path d="M65 362L76 356"/>
+                        </g>
+                        <!-- Five-lobed grape leaves, each sitting on the end of a petiole -->
+                        <g class="vine-leaf">
+                            <g transform="translate(88 32) rotate(25) scale(0.55)">
+                                <path d="M0 0C6-2 14-4 18-12C14-16 12-17 10-20C16-22 20-25 20-30C14-32 11-32 8-34C6-38 3-42 0-46C-3-42-6-38-8-34C-11-32-14-32-20-30C-20-25-16-22-10-20C-12-17-14-16-18-12C-14-4-6-2 0 0Z"/>
+                                <path class="vine-vein" d="M0-2L0-40M0-10L-13-24M0-10L13-24M0-22L-14-30M0-22L14-30"/>
+                            </g>
+                            <g transform="translate(30 200) rotate(-30) scale(0.55)">
+                                <path d="M0 0C6-2 14-4 18-12C14-16 12-17 10-20C16-22 20-25 20-30C14-32 11-32 8-34C6-38 3-42 0-46C-3-42-6-38-8-34C-11-32-14-32-20-30C-20-25-16-22-10-20C-12-17-14-16-18-12C-14-4-6-2 0 0Z"/>
+                                <path class="vine-vein" d="M0-2L0-40M0-10L-13-24M0-10L13-24M0-22L-14-30M0-22L14-30"/>
+                            </g>
+                            <g transform="translate(76 356) rotate(30) scale(0.55)">
+                                <path d="M0 0C6-2 14-4 18-12C14-16 12-17 10-20C16-22 20-25 20-30C14-32 11-32 8-34C6-38 3-42 0-46C-3-42-6-38-8-34C-11-32-14-32-20-30C-20-25-16-22-10-20C-12-17-14-16-18-12C-14-4-6-2 0 0Z"/>
+                                <path class="vine-vein" d="M0-2L0-40M0-10L-13-24M0-10L13-24M0-22L-14-30M0-22L14-30"/>
+                            </g>
+                        </g>
+                        <!-- Tapered bunches, hanging from the stems above -->
+                        <g class="vine-grape">
+                            <g transform="translate(91 104)">
+                                <circle cx="-9" cy="0" r="4.5"/><circle cx="0" cy="0" r="4.5"/><circle cx="9" cy="0" r="4.5"/>
+                                <circle cx="-4.5" cy="8" r="4.5"/><circle cx="4.5" cy="8" r="4.5"/>
+                                <circle cx="0" cy="16" r="4.5"/>
+                            </g>
+                            <g transform="translate(31 250)">
+                                <circle cx="-9" cy="0" r="4.5"/><circle cx="0" cy="0" r="4.5"/><circle cx="9" cy="0" r="4.5"/>
+                                <circle cx="-4.5" cy="8" r="4.5"/><circle cx="4.5" cy="8" r="4.5"/>
+                                <circle cx="0" cy="16" r="4.5"/>
+                            </g>
+                        </g>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#vine-pattern)"/>
+            </svg>
+            <svg class="vine-decor vine-decor--right" aria-hidden="true" focusable="false">
+                <rect width="100%" height="100%" fill="url(#vine-pattern)"/>
+            </svg>
+
             <!-- Page Header -->
              <div class="vine-header reveal">
                 <p class="section-label">From the Vineyard</p>
@@ -165,9 +222,10 @@
                     <!-- Post Date -->
                     <p class="post-date">June 15, 2026</p>
 
-                    <!-- Photos, upload images to folder first -->
+                    <!-- Upload images to the folder first, then add as many post-photo
+                         blocks as you like. Keep the wrapper div, and update each alt. -->
                      <div class="post-photos">
-                        <img src="images/Primitivo-Picking-Harvest.jpg" alt="Describe Photo Here"/>
+                        <div class="post-photo"><img src="images/Primitivo-Picking-Harvest.jpg" alt="Picking Primitivo at harvest"/></div>
                      </div>
 
                      <!-- ✏️ YOUR TEXT — add as many paragraphs as needed -->
@@ -185,8 +243,8 @@
                     <p class="post-date">May 10, 2026</p>
 
                     <!-- Photos, upload images to folder first -->
-                     <div class="post-image">
-                        <img src="images/Lupine-Field.jpg" alt="Lupine fields in spring"/>
+                     <div class="post-photos">
+                        <div class="post-photo"><img src="images/Lupine-Field.jpg" alt="Lupine fields in spring"/></div>
                      </div>
 
                      <!-- ✏️ YOUR TEXT — add as many paragraphs as needed -->
@@ -320,6 +378,12 @@
         </footer>
 
 
+        <!-- Lightbox -->
+         <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+            <div class="lightbox-overlay" onclick="closeLightbox()"></div>
+            <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+            <button class="lightbox-close" type="button" aria-label="Close photo" onclick="closeLightbox()">&#x2715;</button>
+         </div>
         
 
          <script src="script.js"></script>

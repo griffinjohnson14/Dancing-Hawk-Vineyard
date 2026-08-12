@@ -83,9 +83,8 @@ async function handleSubmit(event) {
 }
 
 
-// Scroll Reveal Animations
-// One shared observer, created once. Re-creating it on every page change left the
-// old observers alive and stacked up a new one each time you clicked the nav.
+// Scroll Reveal Animations — one shared observer. Re-creating it on every page
+// change left the old ones alive and stacked up a new observer per nav click.
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -119,5 +118,60 @@ window.addEventListener('scroll', function() {
         nav.classList.remove('scrolled');
     }
 }, { passive: true });
+
+
+// Lightbox Functionality
+let lightboxOpener = null;
+
+function openLightbox(img) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
+    // Remember which photo opened it so focus can return there on close
+    lightboxOpener = img;
+    document.querySelector('.lightbox-close').focus();
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    // Without this guard, any stray Escape keypress anywhere on the site
+    // still ran the close logic and cleared body overflow
+    if (!lightbox.classList.contains('active')) return;
+
+    lightbox.classList.remove('active');
+    document.body.style.overflow = ''; // Restore background scrolling
+
+    if (lightboxOpener) {
+        lightboxOpener.focus();
+        lightboxOpener = null;
+    }
+}
+
+// Close lightbox on escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeLightbox();
+    }
+});
+
+// Post photos open the lightbox. They're made focusable and given a role so
+// keyboard users can reach them too, instead of the lightbox being mouse-only.
+document.querySelectorAll('.post-photos img').forEach(img => {
+    img.tabIndex = 0;
+    img.setAttribute('role', 'button');
+
+    img.addEventListener('click', () => openLightbox(img));
+    img.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openLightbox(img);
+        }
+    });
+});
 
 observeReveals();

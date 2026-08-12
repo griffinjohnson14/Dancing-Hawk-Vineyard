@@ -4,6 +4,7 @@
     --cream:     #f5f0e8;
     --parchment: #ede5d4;
     --gold:      #b5892a;
+    --sage:      #4a5e42;
     --text:      #2a1f1a;
     --muted:     #6e5c52;
     --border:    rgba(74, 16, 32, 0.15);
@@ -427,6 +428,34 @@ nav.scrolled {
 
 
 
+/* Decorative Grapevine — hidden until the side margins are wide enough to
+   hold it. Switched on in the min-width block at the end of the file. */
+.vine-decor {
+    display: none;
+}
+
+.vine-decor .vine-stem {
+    stroke: var(--wine);
+}
+
+.vine-decor .vine-leaf {
+    fill: var(--sage);
+}
+
+/* Veins read as light lines across the leaf, which is most of what makes it
+   scan as a grape leaf rather than a green shape */
+.vine-decor .vine-vein {
+    fill: none;
+    stroke: var(--cream);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+}
+
+.vine-decor .vine-grape {
+    fill: var(--wine);
+}
+
+
 /* Through the Grape Vine Section */
 .vine-header {
     text-align: center;
@@ -487,19 +516,6 @@ nav.scrolled {
     margin-bottom: 2rem;
 }
 
-.post-image {
-    width: 100%;
-    margin-bottom: 2rem;
-    overflow: hidden;
-}
-
-.post-image img {
-    width: 100%;
-    height: 420px;
-    object-fit: cover;
-    display: block;
-}
-
 .post-body {
     font-size: 0.97rem;
     line-height: 1.9;
@@ -511,26 +527,53 @@ nav.scrolled {
 }
 
 
-/* Post Photos Grid */
+/* Post Photos Grid — two columns by default so any count lays out sensibly:
+   1 fills the row, 2 sit side by side, 4 make a 2x2, and so on. */
 .post-photos {
     display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 4px;
     margin-bottom: 1.5rem;
 }
 
-/* 1 Photo: Full Width */
-.post-photos img:only-child {
+/* Layout rules target the wrapper rather than the img, since the frame is what
+   the grid actually positions. Using > * keeps them working either way. */
+
+/* 3 Photos: full width on top, two side by side beneath */
+.post-photos:has(> :nth-child(3):last-child) > :first-child {
     grid-column: span 2;
 }
 
-/* 2 Photos: Side by Side */
-.post-photos:has(img:nth-child(2):last-child) {
-    grid-template-columns: 1fr 1fr;
+/* An odd number of photos strands the last one at half width, so let it span.
+   The 3-photo case is excluded because it spans its first photo instead. */
+.post-photos:not(:has(> :nth-child(3):last-child)) > :last-child:nth-child(odd) {
+    grid-column: span 2;
 }
 
-/* 3 Photos: Full on top, 2nd row side by side */
-.post-photos:has(img:nth-child(3):last-child) {
-    grid-template-columns: 1fr 1fr;
+/* Per-photo frame so the hover zoom clips here, like .gallery-item — overflow on
+   the grid itself sliced edge photos and let inner ones bleed onto neighbours. */
+.post-photo {
+    overflow: hidden;
+    aspect-ratio: 4 / 3;   /* scales with the column instead of a fixed height */
+}
+
+.post-photos img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.post-photos img:hover {
+    transform: scale(1.04);
+}
+
+/* Inset so the frame's overflow doesn't clip the focus ring */
+.post-photos img:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: -3px;
 }
 
 
@@ -804,6 +847,56 @@ footer {
 
 
 
+/* Lightbox Styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+}
+
+.lightbox-img {
+    position: relative;
+    z-index: 1;
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 2;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.lightbox-close:hover {
+    opacity: 1;
+}
+
+
+
 /** Animations and Transitions **/
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(28px); }
@@ -991,5 +1084,63 @@ footer {
 
     .vine-post {
         padding: 2.5rem 0;
+    }
+}
+
+
+/* Large Screens — the 1100px cap left big empty margins and small photos, so
+   widen the content here and let the photos scale up with it. */
+@media (min-width: 1600px) {
+    .vine-posts {
+        max-width: 1500px;
+        gap: 4rem;
+    }
+
+    .gallery-item img {
+        height: 620px;
+    }
+}
+
+/* The grapevine only appears once the margins can hold a full 120px tile
+   without crowding the posts. Below this it stays hidden entirely. */
+@media (min-width: 1900px) {
+    #page-vine {
+        position: relative;
+        --content-w: 1500px;
+    }
+
+    .vine-decor {
+        display: block;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 120px;        /* exactly one pattern tile, so it never repeats sideways */
+        opacity: 0.16;
+        pointer-events: none;
+        z-index: -1;         /* sits behind the posts, can never cover a photo */
+    }
+
+    /* Centred within the empty margin on each side of the content */
+    .vine-decor--left {
+        left: calc((100% - var(--content-w) - 240px) / 4);
+    }
+
+    .vine-decor--right {
+        right: calc((100% - var(--content-w) - 240px) / 4);
+        transform: scaleX(-1);
+    }
+}
+
+@media (min-width: 2200px) {
+    .vine-posts {
+        max-width: 1750px;
+    }
+
+    .gallery-item img {
+        height: 760px;
+    }
+
+    #page-vine {
+        --content-w: 1750px;
     }
 }

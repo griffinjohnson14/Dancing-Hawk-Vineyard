@@ -511,6 +511,29 @@ nav.scrolled {
 }
 
 
+/* Post Photos Grid */
+.post-photos {
+    display: grid;
+    gap: 4px;
+    margin-bottom: 1.5rem;
+}
+
+/* 1 Photo: Full Width */
+.post-photos img:only-child {
+    grid-column: span 2;
+}
+
+/* 2 Photos: Side by Side */
+.post-photos:has(img:nth-child(2):last-child) {
+    grid-template-columns: 1fr 1fr;
+}
+
+/* 3 Photos: Full on top, 2nd row side by side */
+.post-photos:has(img:nth-child(3):last-child) {
+    grid-template-columns: 1fr 1fr;
+}
+
+
 
 
 /* Gallery Section */

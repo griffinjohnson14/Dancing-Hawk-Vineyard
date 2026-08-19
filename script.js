@@ -2,6 +2,70 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
 
+// Escapes anything typed in posts.js, so apostrophes, quotes and & in the
+// text can never break the markup
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// "2026-06-15" becomes "June 15, 2026". Built from parts rather than
+// new Date(string), which parses as UTC and can land a day early.
+function formatPostDate(iso) {
+    const [y, m, d] = String(iso).split('-').map(Number);
+    if (!y || !m || !d) return iso;
+    return new Date(y, m - 1, d).toLocaleDateString('en-US', {
+        year: 'numeric', month: 'long', day: 'numeric'
+    });
+}
+
+// "zin-at-verasion.jpg" becomes "zin at verasion", so photos still get
+// alt text without asking whoever writes the post to supply it
+function altFromFilename(file) {
+    return file.replace(/\.[^.]+$/, '').replace(/[-_]+/g, ' ').trim();
+}
+
+
+// Builds the Grapevine posts from posts.js. Sorted newest first, so the order
+// they were typed in does not matter.
+function renderPosts() {
+    const container = document.querySelector('.vine-posts');
+    if (!container || typeof posts === 'undefined') return;
+
+    const sorted = [...posts].sort((a, b) => String(b.date).localeCompare(String(a.date)));
+
+    container.innerHTML = sorted.map(post => {
+        const photos = (post.photos || []).map(file => `
+                <div class="post-photo">
+                    <img src="images/${encodeURI(file)}" alt="${escapeHtml(altFromFilename(file))}" loading="lazy" />
+                </div>`).join('');
+
+        const body = (post.body || []).map(p => `<p class="post-body">${escapeHtml(p)}</p>`).join('');
+
+        return `
+        <article class="vine-post reveal">
+            <h3 class="post-title">${escapeHtml(post.title || '')}</h3>
+            <p class="post-date">${formatPostDate(post.date)}</p>
+            <div class="post-photos">${photos}
+            </div>
+            ${body}
+        </article>`;
+    }).join('');
+
+    // A mistyped file name shows a readable note instead of a broken-image icon
+    container.querySelectorAll('.post-photos img').forEach(img => {
+        img.addEventListener('error', () => {
+            const frame = img.closest('.post-photo');
+            if (frame) {
+                frame.classList.add('post-photo--missing');
+                frame.setAttribute('data-missing', 'Photo not found: ' + img.getAttribute('src'));
+            }
+        });
+    });
+}
+
+
 // Mobile Menu Toggle
 function toggleNav(forceClose) {
     const links = document.getElementById('nav-links');
@@ -161,17 +225,24 @@ document.addEventListener('keydown', function(event) {
 
 // Post photos open the lightbox. They're made focusable and given a role so
 // keyboard users can reach them too, instead of the lightbox being mouse-only.
-document.querySelectorAll('.post-photos img').forEach(img => {
-    img.tabIndex = 0;
-    img.setAttribute('role', 'button');
+function wirePhotos() {
+    document.querySelectorAll('.post-photos img').forEach(img => {
+        img.tabIndex = 0;
+        img.setAttribute('role', 'button');
 
-    img.addEventListener('click', () => openLightbox(img));
-    img.addEventListener('keydown', event => {
-        if (event.key === 'Enter' || event.key === ' ') {
-            event.preventDefault();
-            openLightbox(img);
-        }
+        img.addEventListener('click', () => openLightbox(img));
+        img.addEventListener('keydown', event => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                openLightbox(img);
+            }
+        });
     });
-});
+}
 
+
+// Posts must be built before the photos are wired or the reveals observed,
+// since both of those look for elements this creates.
+renderPosts();
+wirePhotos();
 observeReveals();

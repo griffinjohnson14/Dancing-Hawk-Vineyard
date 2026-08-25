@@ -7,15 +7,18 @@ const posts = [
     {
         title: "Example Post Title",
 
-        date: "2026-06-15",
+        date: "2026-08-24",
 
         photos: [
-            "Primitivo-Picking-Harvest.jpg"
+            "Zinfandel-20260824.jpg"
         ],
 
         body: [
-            "This is where Ken can write his update. He can write as much or as little as he wants here. Just replace this text with whatever he wishes to convey about the happenings in the vineyard.",
-            "He can add a second paragraph here if he wants to say more."
+            "Zinfandel 25 Brix 8/21/26"
+	        "seeds approaching completely brown"
+	        "hot days, cool nights good for hang time"
+	        "lighter fruit set this year should be good for skin-juice ratio"
+	        "smaller clusters with marble sized berries",
         ]
     },
 
@@ -23,14 +26,15 @@ const posts = [
     {
         title: "Earlier Update",
 
-        date: "2026-05-10",
+        date: "2026-08-21",
 
-        photos: [
-            "Lupine-Field.jpg"
+        photos: [   
+            "Primitivo-20260824.jpg"
         ],
 
         body: [
-            "This is an older post showing how previous updates will appear on the webpage."
+            "Primitivo 23.6 Brix 8/21/26"
+            "Development similar to Zinfandel but slightly less sugar""
         ]
     }
 

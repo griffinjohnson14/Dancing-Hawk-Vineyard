@@ -5,7 +5,7 @@
 const posts = [
 
     {
-        title: "Ready",
+        title: "Ready!",
 
         date: "2026-08-24",
 
@@ -18,7 +18,7 @@ const posts = [
 	        "seeds approaching completely brown",
 	        "hot days, cool nights good for hang time",
 	        "lighter fruit set this year should be good for skin-juice ratio",
-	        "smaller clusters with marble sized berries"
+	        "smaller clusters than normal with marble sized berries"
         ]
     },
 

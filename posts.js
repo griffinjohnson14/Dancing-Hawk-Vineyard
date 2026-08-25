@@ -5,7 +5,7 @@
 const posts = [
 
     {
-        title: "Example Post Title",
+        title: "Ready",
 
         date: "2026-08-24",
 
@@ -24,7 +24,7 @@ const posts = [
 
 
     {
-        title: "Earlier Update",
+        title: "Early Harvest",
 
         date: "2026-08-21",
 

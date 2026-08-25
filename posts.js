@@ -34,7 +34,7 @@ const posts = [
 
         body: [
             "Primitivo 23.6 Brix 8/21/26",
-            "Development similar to Zinfandel but slightly less sugar""
+            "Development similar to Zinfandel but slightly less sugar"
         ]
     }
 

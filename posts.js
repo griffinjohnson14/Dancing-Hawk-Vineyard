@@ -14,11 +14,11 @@ const posts = [
         ],
 
         body: [
-            "Zinfandel 25 Brix 8/21/26"
-	        "seeds approaching completely brown"
-	        "hot days, cool nights good for hang time"
-	        "lighter fruit set this year should be good for skin-juice ratio"
-	        "smaller clusters with marble sized berries",
+            "Zinfandel 25 Brix 8/21/26",
+	        "seeds approaching completely brown",
+	        "hot days, cool nights good for hang time",
+	        "lighter fruit set this year should be good for skin-juice ratio",
+	        "smaller clusters with marble sized berries"
         ]
     },
 
@@ -33,7 +33,7 @@ const posts = [
         ],
 
         body: [
-            "Primitivo 23.6 Brix 8/21/26"
+            "Primitivo 23.6 Brix 8/21/26",
             "Development similar to Zinfandel but slightly less sugar""
         ]
     }

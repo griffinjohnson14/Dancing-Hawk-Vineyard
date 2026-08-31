@@ -5,20 +5,21 @@
 const posts = [
 
     {
-        title: "Ready!",
+        title: "Harvest Time!",
 
-        date: "2026-08-24",
+        date: "2026-08-30",
 
         photos: [
-            "Zinfandel-20260824.jpg"
+            "Zinfandel-20260830.jpg"
         ],
 
         body: [
-            "Zinfandel 25 Brix 8/21/26",
-	        "seeds approaching completely brown",
-	        "hot days, cool nights good for hang time",
-	        "lighter fruit set this year should be good for skin-juice ratio",
-	        "smaller clusters than normal with marble sized berries"
+            "Zinfandel 26.2 Brix 8/30/26",
+			"primary cluster seeds completely brown",
+			"hot days, cool nights good for hang time",
+			"30% lighter fruit set this year",
+			"some golf-balling starting in",
+			"smaller clusters with marble sized berries"
         ]
     },
 
@@ -26,14 +27,14 @@ const posts = [
     {
         title: "Early Harvest",
 
-        date: "2026-08-21",
+        date: "2026-08-29",
 
         photos: [   
             "Primitivo-20260824.jpg"
         ],
 
         body: [
-            "Primitivo 23.6 Brix 8/21/26",
+            "Primitivo 25.0 Brix 8/29/26",
             "Development similar to Zinfandel but slightly less sugar"
         ]
     }

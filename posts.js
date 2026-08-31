@@ -10,7 +10,7 @@ const posts = [
         date: "2026-08-30",
 
         photos: [
-            "Zinfandel-20260830.jpg"
+            "Zinfandel-20260829.jpg"
         ],
 
         body: [
